@@ -1,0 +1,40 @@
+# Book settings
+title: "LLMs for Social Scientists"
+author: "Yemre Tapan"
+logo: docs/images/logo.png
+copyright: "2025"
+
+# Force re-execution of notebooks on each build
+execute:
+  execute_notebooks: force
+
+# Define the left-hand table of contents
+format: jb-book
+root: book_setup_guide
+
+# Information about where the book exists on the web
+repository:
+  url: https://github.com/yemretapan/llms4socialscientists
+  path_to_book: ./
+  branch: main
+
+# Add GitHub buttons to your book
+html:
+  use_issues_button: true
+  use_repository_button: true
+  use_edit_page_button: true
+
+# Launch button configuration
+launch_buttons:
+  notebook_interface: jupyterlab
+  binderhub_url: https://mybinder.org
+  colab_url: https://colab.research.google.com
+
+# Sphinx configuration
+sphinx:
+  config:
+    html_theme_options:
+      repository_url: https://github.com/yemretapan/llms4socialscientists
+      use_repository_button: true
+      use_issues_button: true
+      use_edit_page_button: true 

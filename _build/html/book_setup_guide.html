@@ -1,0 +1,1564 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>LLM Book Project Setup Guide &#8212; LLMs for Social Scientists</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'book_setup_guide';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="#">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">LLMs for Social Scientists</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/yemretapan/llms4socialscientists" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/yemretapan/llms4socialscientists/edit/main/book_setup_guide.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/yemretapan/llms4socialscientists/issues/new?title=Issue%20on%20page%20%2Fbook_setup_guide.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/book_setup_guide.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>LLM Book Project Setup Guide</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-create-github-repository">Step 1: Create GitHub Repository</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-repository-on-github">1.1 Create Repository on GitHub</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clone-repository-locally">1.2 Clone Repository Locally</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-initial-directory-structure">Step 2: Initial Directory Structure</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-directory-structure">2.1 Create Directory Structure</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verify-structure">2.2 Verify Structure</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-create-initial-files">Step 3: Create Initial Files</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#main-readme-md">3.1 Main README.md</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#launch-jupyter">Launch Jupyter</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datasets-and-examples">📊 Datasets and Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#primary-focus-political-science"><strong>Primary Focus: Political Science</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adaptable-to-other-disciplines"><strong>Adaptable to Other Disciplines</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tech-stack">🛠️ Tech Stack</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-path">📖 Learning Path</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#foundation-chapters-1-3"><strong>Foundation (Chapters 1-3)</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#understanding-ai-chapters-4-5"><strong>Understanding AI (Chapters 4-5)</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deployment-options-chapters-6-7"><strong>Deployment Options (Chapters 6-7)</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-applications-chapters-8-9"><strong>Advanced Applications (Chapters 8-9)</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#production-chapter-10"><strong>Production (Chapter 10)</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#final-research-projects">🎯 Final Research Projects</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#political-science-applications"><strong>Political Science Applications</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generalizable-to-other-fields"><strong>Generalizable to Other Fields</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#research-methodologies-enhanced">🔬 Research Methodologies Enhanced</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#qualitative-research"><strong>Qualitative Research</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quantitative-research"><strong>Quantitative Research</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mixed-methods"><strong>Mixed Methods</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#license">📝 License</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contributing">🤝 Contributing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contact">📬 Contact</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-book-configuration-config-yml">3.3 Jupyter Book Configuration (_config.yml)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents-toc-yml">3.4 Table of Contents (_toc.yml)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contributing-guidelines-contributing-md">3.5 Contributing Guidelines (CONTRIBUTING.md)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-branch">2. Create a Branch</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#make-changes">3. Make Changes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#submit-pull-request">4. Submit Pull Request</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-style">Code Style</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python">Python</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notebooks">Notebooks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#content">Content</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#testing">Testing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions">Questions?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#license-mit-license">3.7 LICENSE (MIT License)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-chapter-template">3.8 Sample Chapter Template</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-notebook-structure">3.9 Sample Notebook Structure</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-initialize-git-and-push">Step 4: Initialize Git and Push</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-files-to-git">4.1 Add Files to Git</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#push-to-github">4.2 Push to GitHub</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-set-up-development-environment">Step 5: Set Up Development Environment</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-conda-environment">5.1 Create Conda Environment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test-jupyter-book-build">5.2 Test Jupyter Book Build</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-6-set-up-github-pages-optional">Step 6: Set Up GitHub Pages (Optional)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enable-github-pages">6.1 Enable GitHub Pages</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#github-actions-workflow">6.2 GitHub Actions Workflow</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-7-verification-checklist">Step 7: Verification Checklist</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#repository-setup">✅ Repository Setup</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#environment-setup">✅ Environment Setup</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#book-configuration">✅ Book Configuration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#development-workflow">✅ Development Workflow</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#next-steps-after-setup">Next Steps After Setup</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#start-with-chapter-2-eda">1. Start with Chapter 2 (EDA)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adapt-your-existing-labs">2. Adapt Your Existing Labs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#build-community">3. Build Community</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-commands-reference">Quick Commands Reference</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="llm-book-project-setup-guide">
+<h1>LLM Book Project Setup Guide<a class="headerlink" href="#llm-book-project-setup-guide" title="Link to this heading">#</a></h1>
+<section id="step-1-create-github-repository">
+<h2>Step 1: Create GitHub Repository<a class="headerlink" href="#step-1-create-github-repository" title="Link to this heading">#</a></h2>
+<section id="create-repository-on-github">
+<h3>1.1 Create Repository on GitHub<a class="headerlink" href="#create-repository-on-github" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Go to <a class="reference external" href="https://github.com">GitHub</a> and click “New repository”</p></li>
+<li><p><strong>Repository name</strong>: <code class="docutils literal notranslate"><span class="pre">llms4socialscientists</span></code> (or your preferred name)</p></li>
+<li><p><strong>Description</strong>: “A practical guide to LLMs for social scientists using philosophy datasets”</p></li>
+<li><p><strong>Public repository</strong> (for open source)</p></li>
+<li><p><strong>Add <a class="reference external" href="http://README.md">README.md</a></strong>: ✅ Check this</p></li>
+<li><p><strong>Add .gitignore</strong>: Choose “Python”</p></li>
+<li><p><strong>Add license</strong>: Choose “MIT License” or “Creative Commons”</p></li>
+<li><p>Click “Create repository”</p></li>
+</ol>
+</section>
+<section id="clone-repository-locally">
+<h3>1.2 Clone Repository Locally<a class="headerlink" href="#clone-repository-locally" title="Link to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Clone your repository</span>
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/YOUR_USERNAME/llms4socialscientists.git
+<span class="nb">cd</span><span class="w"> </span>llms4socialscientists
+</pre></div>
+</div>
+</section>
+</section>
+<section id="step-2-initial-directory-structure">
+<h2>Step 2: Initial Directory Structure<a class="headerlink" href="#step-2-initial-directory-structure" title="Link to this heading">#</a></h2>
+<section id="create-directory-structure">
+<h3>2.1 Create Directory Structure<a class="headerlink" href="#create-directory-structure" title="Link to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create main directories</span>
+mkdir<span class="w"> </span>-p<span class="w"> </span>notebooks/<span class="o">{</span><span class="m">01</span>-python-refresher,02-eda-philpapers,03-web-scraping,04-transformers-embeddings,05-transformers-capabilities,06-local-llms,07-api-llms,08-rag-systems,09-graph-rag,10-gradio-showcase<span class="o">}</span>
+
+mkdir<span class="w"> </span>-p<span class="w"> </span>data/<span class="o">{</span>raw,processed,philpapers-sample,scraped-papers<span class="o">}</span>
+mkdir<span class="w"> </span>-p<span class="w"> </span>src/<span class="o">{</span>utils,scraping,rag,apps<span class="o">}</span>
+mkdir<span class="w"> </span>-p<span class="w"> </span>models/embeddings
+mkdir<span class="w"> </span>-p<span class="w"> </span>apps/<span class="o">{</span>philosophy-qa,concept-explorer,paper-analyzer<span class="o">}</span>
+mkdir<span class="w"> </span>-p<span class="w"> </span>docs/<span class="o">{</span>images,references<span class="o">}</span>
+mkdir<span class="w"> </span>-p<span class="w"> </span>tests
+</pre></div>
+</div>
+</section>
+<section id="verify-structure">
+<h3>2.2 Verify Structure<a class="headerlink" href="#verify-structure" title="Link to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tree<span class="w"> </span>-d<span class="w"> </span>-L<span class="w"> </span><span class="m">3</span>
+</pre></div>
+</div>
+<p>Expected output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>.
+├── apps
+│   ├── concept-explorer
+│   ├── paper-analyzer
+│   └── philosophy-qa
+├── data
+│   ├── philpapers-sample
+│   ├── processed
+│   ├── raw
+│   └── scraped-papers
+├── docs
+│   ├── images
+│   └── references
+├── models
+│   └── embeddings
+├── notebooks
+│   ├── 01-python-refresher
+│   ├── 02-eda-philpapers
+│   ├── 03-web-scraping
+│   ├── 04-transformers-embeddings
+│   ├── 05-transformers-capabilities
+│   ├── 06-local-llms
+│   ├── 07-api-llms
+│   ├── 08-rag-systems
+│   ├── 09-graph-rag
+│   └── 10-gradio-showcase
+├── src
+│   ├── apps
+│   ├── rag
+│   ├── scraping
+│   └── utils
+└── tests
+</pre></div>
+</div>
+</section>
+</section>
+<section id="step-3-create-initial-files">
+<h2>Step 3: Create Initial Files<a class="headerlink" href="#step-3-create-initial-files" title="Link to this heading">#</a></h2>
+<section id="main-readme-md">
+<h3>3.1 Main <a class="reference external" href="http://README.md">README.md</a><a class="headerlink" href="#main-readme-md" title="Link to this heading">#</a></h3>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gh"># LLMs for Social Scientists: Bridging Qualitative and Quantitative Research</span>
+
+A practical, hands-on guide to using Large Language Models for social science research, demonstrating how AI can bridge traditional qualitative and quantitative methodologies.
+
+<span class="gu">## 📚 Book Structure</span>
+
+This book takes you from Python basics to deployed LLM applications in 10 practical chapters, using political science texts as primary examples:
+
+<span class="k">1.</span> <span class="gs">**Python for Text Analysis**</span> - Essential Python for text analysis and data processing
+<span class="k">2.</span> <span class="gs">**Exploratory Text Analysis**</span> - Understanding your data through visualization and statistics
+<span class="k">3.</span> <span class="gs">**Data Collection for Research**</span> - Collecting text data from web sources
+<span class="k">4.</span> <span class="gs">**Understanding Language Models**</span> - How transformers work and why they matter
+<span class="k">5.</span> <span class="gs">**LLM Applications in Research**</span> - Practical uses of language models in research
+<span class="k">6.</span> <span class="gs">**Local Model Deployment**</span> - Running models on your machine for privacy and control
+<span class="k">7.</span> <span class="gs">**Cloud-Based Model Access**</span> - Accessing powerful models through APIs
+<span class="k">8.</span> <span class="gs">**Intelligent Search and Q&amp;A**</span> - Building retrieval-augmented generation (RAG) systems
+<span class="k">9.</span> <span class="gs">**Knowledge Graph Applications**</span> - Advanced retrieval using structured knowledge
+<span class="k">10.</span> <span class="gs">**Deploying Research Tools**</span> - Creating web applications for your research
+
+<span class="gu">## 🎯 Research Philosophy: Inductive + Deductive = Powerful</span>
+
+This book demonstrates how LLMs can bridge traditional social science methodologies:
+
+<span class="gu">### **Qualitative → Quantitative**</span>
+<span class="k">-</span><span class="w"> </span><span class="gs">**Inductive Analysis**</span>: Extract themes from interviews, speeches, and documents
+<span class="k">-</span><span class="w"> </span><span class="gs">**Pattern Recognition**</span>: Identify recurring concepts across large text corpora
+<span class="k">-</span><span class="w"> </span><span class="gs">**Content Analysis**</span>: Automate coding of qualitative data
+<span class="k">-</span><span class="w"> </span><span class="gs">**Sentiment Analysis**</span>: Quantify emotional content in political discourse
+
+<span class="gu">### **Quantitative → Qualitative** </span>
+<span class="k">-</span><span class="w"> </span><span class="gs">**Deductive Testing**</span>: Validate hypotheses with large-scale text analysis
+<span class="k">-</span><span class="w"> </span><span class="gs">**Statistical Validation**</span>: Test relationships between concepts and outcomes
+<span class="k">-</span><span class="w"> </span><span class="gs">**Predictive Modeling**</span>: Forecast political events from text data
+<span class="k">-</span><span class="w"> </span><span class="gs">**Causal Inference**</span>: Identify causal relationships in textual data
+
+<span class="gu">## 🚀 Quick Start</span>
+
+<span class="gu">### Prerequisites for Social Scientists</span>
+<span class="k">-</span><span class="w"> </span><span class="gs">**Technical**</span>: Basic Python knowledge (or willingness to learn)
+<span class="k">-</span><span class="w"> </span><span class="gs">**Research**</span>: Familiarity with social science research methods
+<span class="k">-</span><span class="w"> </span><span class="gs">**Hardware**</span>: 8GB+ RAM (16GB recommended), GPU optional but helpful
+<span class="k">-</span><span class="w"> </span><span class="gs">**Mindset**</span>: Curiosity about AI&#39;s role in social science research
+
+<span class="gu">### Installation</span>
+```bash
+git clone https://github.com/YOUR_USERNAME/llms4socialscientists.git
+cd llms4socialscientists
+conda env create -f environment.yml
+conda activate llms4socialscientists
+</pre></div>
+</div>
+</section>
+<section id="launch-jupyter">
+<h3>Launch Jupyter<a class="headerlink" href="#launch-jupyter" title="Link to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jupyter<span class="w"> </span>lab
+</pre></div>
+</div>
+</section>
+</section>
+<section id="datasets-and-examples">
+<h2>📊 Datasets and Examples<a class="headerlink" href="#datasets-and-examples" title="Link to this heading">#</a></h2>
+<section id="primary-focus-political-science">
+<h3><strong>Primary Focus: Political Science</strong><a class="headerlink" href="#primary-focus-political-science" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Congressional Speeches</strong>: Analyze voting patterns and rhetoric</p></li>
+<li><p><strong>Policy Documents</strong>: Track policy evolution and implementation</p></li>
+<li><p><strong>Political News</strong>: Monitor media coverage and bias</p></li>
+<li><p><strong>Campaign Materials</strong>: Study political messaging strategies</p></li>
+</ul>
+</section>
+<section id="adaptable-to-other-disciplines">
+<h3><strong>Adaptable to Other Disciplines</strong><a class="headerlink" href="#adaptable-to-other-disciplines" title="Link to this heading">#</a></h3>
+<p>The tools and techniques taught here can be applied to:</p>
+<ul class="simple">
+<li><p><strong>Sociology</strong>: Survey responses, social media data, interview transcripts</p></li>
+<li><p><strong>Economics</strong>: Financial reports, policy papers, economic indicators</p></li>
+<li><p><strong>Psychology</strong>: Clinical notes, research papers, behavioral data</p></li>
+<li><p><strong>Anthropology</strong>: Ethnographic texts, cultural documents, field notes</p></li>
+</ul>
+</section>
+</section>
+<section id="tech-stack">
+<h2>🛠️ Tech Stack<a class="headerlink" href="#tech-stack" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Python</strong>: Core programming language for data science</p></li>
+<li><p><strong>Jupyter</strong>: Interactive development and reproducible research</p></li>
+<li><p><strong>Transformers</strong>: Hugging Face library for language models</p></li>
+<li><p><strong>ChromaDB</strong>: Vector database for semantic search</p></li>
+<li><p><strong>Gradio</strong>: Web interface deployment for research tools</p></li>
+<li><p><strong>Ollama</strong>: Local LLM deployment for privacy-sensitive research</p></li>
+</ul>
+</section>
+<section id="learning-path">
+<h2>📖 Learning Path<a class="headerlink" href="#learning-path" title="Link to this heading">#</a></h2>
+<section id="foundation-chapters-1-3">
+<h3><strong>Foundation (Chapters 1-3)</strong><a class="headerlink" href="#foundation-chapters-1-3" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Python skills for text processing</p></li>
+<li><p>Exploratory data analysis techniques</p></li>
+<li><p>Data collection from web sources</p></li>
+</ul>
+</section>
+<section id="understanding-ai-chapters-4-5">
+<h3><strong>Understanding AI (Chapters 4-5)</strong><a class="headerlink" href="#understanding-ai-chapters-4-5" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>How language models work internally</p></li>
+<li><p>Practical applications in research contexts</p></li>
+<li><p>Bridging qualitative and quantitative approaches</p></li>
+</ul>
+</section>
+<section id="deployment-options-chapters-6-7">
+<h3><strong>Deployment Options (Chapters 6-7)</strong><a class="headerlink" href="#deployment-options-chapters-6-7" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Local models for sensitive data</p></li>
+<li><p>Cloud APIs for computational power</p></li>
+<li><p>Privacy and ethical considerations</p></li>
+</ul>
+</section>
+<section id="advanced-applications-chapters-8-9">
+<h3><strong>Advanced Applications (Chapters 8-9)</strong><a class="headerlink" href="#advanced-applications-chapters-8-9" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Building intelligent research assistants</p></li>
+<li><p>Knowledge graphs for complex relationships</p></li>
+<li><p>Combining multiple data sources</p></li>
+</ul>
+</section>
+<section id="production-chapter-10">
+<h3><strong>Production (Chapter 10)</strong><a class="headerlink" href="#production-chapter-10" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Deploying research tools for broader use</p></li>
+<li><p>Creating interactive dashboards</p></li>
+<li><p>Sharing research with stakeholders</p></li>
+</ul>
+</section>
+</section>
+<section id="final-research-projects">
+<h2>🎯 Final Research Projects<a class="headerlink" href="#final-research-projects" title="Link to this heading">#</a></h2>
+<p>By the end, you’ll have built practical tools for social science research:</p>
+<section id="political-science-applications">
+<h3><strong>Political Science Applications</strong><a class="headerlink" href="#political-science-applications" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Policy Analysis Tool</strong>: Track policy evolution and predict outcomes</p></li>
+<li><p><strong>Speech Analyzer</strong>: Analyze political rhetoric and voting patterns</p></li>
+<li><p><strong>Media Bias Detector</strong>: Identify bias in political news coverage</p></li>
+<li><p><strong>Campaign Strategy Assistant</strong>: Analyze opponent messaging and voter sentiment</p></li>
+</ul>
+</section>
+<section id="generalizable-to-other-fields">
+<h3><strong>Generalizable to Other Fields</strong><a class="headerlink" href="#generalizable-to-other-fields" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Survey Analysis Tool</strong>: Process open-ended responses at scale</p></li>
+<li><p><strong>Interview Coding Assistant</strong>: Automate qualitative data analysis</p></li>
+<li><p><strong>Literature Review Helper</strong>: Synthesize research findings</p></li>
+<li><p><strong>Research Assistant</strong>: Answer questions about your field’s literature</p></li>
+</ul>
+</section>
+</section>
+<section id="research-methodologies-enhanced">
+<h2>🔬 Research Methodologies Enhanced<a class="headerlink" href="#research-methodologies-enhanced" title="Link to this heading">#</a></h2>
+<section id="qualitative-research">
+<h3><strong>Qualitative Research</strong><a class="headerlink" href="#qualitative-research" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Thematic Analysis</strong>: Automate coding of interview transcripts</p></li>
+<li><p><strong>Discourse Analysis</strong>: Analyze political speeches and media content</p></li>
+<li><p><strong>Content Analysis</strong>: Process large document collections</p></li>
+<li><p><strong>Narrative Analysis</strong>: Identify story patterns in text data</p></li>
+</ul>
+</section>
+<section id="quantitative-research">
+<h3><strong>Quantitative Research</strong><a class="headerlink" href="#quantitative-research" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Text Mining</strong>: Extract quantitative features from text</p></li>
+<li><p><strong>Sentiment Analysis</strong>: Measure emotional content in discourse</p></li>
+<li><p><strong>Network Analysis</strong>: Map relationships between concepts</p></li>
+<li><p><strong>Predictive Modeling</strong>: Forecast outcomes from text data</p></li>
+</ul>
+</section>
+<section id="mixed-methods">
+<h3><strong>Mixed Methods</strong><a class="headerlink" href="#mixed-methods" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Triangulation</strong>: Combine AI insights with human interpretation</p></li>
+<li><p><strong>Validation</strong>: Use quantitative methods to validate qualitative findings</p></li>
+<li><p><strong>Scale</strong>: Apply qualitative insights to larger datasets</p></li>
+<li><p><strong>Depth</strong>: Add nuance to quantitative analyses</p></li>
+</ul>
+</section>
+</section>
+<section id="license">
+<h2>📝 License<a class="headerlink" href="#license" title="Link to this heading">#</a></h2>
+<p>This work is licensed under <a class="reference internal" href="#LICENSE"><span class="xref myst">MIT License</span></a> for code and <a class="reference external" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0</a> for content.</p>
+</section>
+<section id="contributing">
+<h2>🤝 Contributing<a class="headerlink" href="#contributing" title="Link to this heading">#</a></h2>
+<p>Contributions welcome! Please read <a class="reference internal" href="#CONTRIBUTING.md"><span class="xref myst">CONTRIBUTING.md</span></a> for guidelines.</p>
+</section>
+<section id="contact">
+<h2>📬 Contact<a class="headerlink" href="#contact" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Author</strong>: [Your Name]</p></li>
+<li><p><strong>Email</strong>: [your.email&#64;example.com]</p></li>
+<li><p><strong>Twitter</strong>: [&#64;yourusername]</p></li>
+</ul>
+<hr class="docutils" />
+<p><em>This book is designed for social scientists who want to leverage AI to bridge traditional research methodologies. No prior machine learning experience required, but a passion for rigorous social science research is essential.</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+### 3.2 Environment Configuration (environment.yml)
+```yaml
+name: llms4socialscientists
+channels:
+  - conda-forge
+  - pytorch
+  - huggingface
+dependencies:
+  - python=3.11
+  - pip
+  - jupyter
+  - jupyterlab
+  - notebook
+  
+  # Data processing
+  - pandas
+  - numpy
+  - matplotlib
+  - seaborn
+  - networkx
+  - scikit-learn
+  
+  # Web scraping
+  - requests
+  - beautifulsoup4
+  - selenium
+  
+  # NLP and ML
+  - transformers
+  - torch
+  - sentence-transformers
+  - datasets
+  
+  # Vector databases
+  - chromadb
+  - faiss-cpu
+  
+  # Visualization
+  - plotly
+  - wordcloud
+  
+  # Development
+  - black
+  - flake8
+  - pytest
+  
+  # Deployment
+  - gradio
+  - streamlit
+  
+  - pip:
+    - pypdf
+    - ollama
+    - openai
+    - python-dotenv
+    - tiktoken
+    - langchain
+    - langchain-community
+    - langchain-openai
+    - langchain-chroma
+</pre></div>
+</div>
+<section id="jupyter-book-configuration-config-yml">
+<h3>3.3 Jupyter Book Configuration (_config.yml)<a class="headerlink" href="#jupyter-book-configuration-config-yml" title="Link to this heading">#</a></h3>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Book settings</span>
+<span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;LLMs</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">Social</span><span class="nv"> </span><span class="s">Scientists&quot;</span>
+<span class="nt">author</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Your</span><span class="nv"> </span><span class="s">Name&quot;</span>
+<span class="nt">logo</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">docs/images/logo.png</span>
+<span class="nt">copyright</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;2025&quot;</span>
+
+<span class="c1"># Force re-execution of notebooks on each build</span>
+<span class="nt">execute</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">execute_notebooks</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">force</span>
+
+<span class="c1"># Define the left-hand table of contents</span>
+<span class="nt">format</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jb-book</span>
+<span class="nt">root</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">README</span>
+
+<span class="c1"># Information about where the book exists on the web</span>
+<span class="nt">repository</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/YOUR_USERNAME/llms4socialscientists</span>
+<span class="w">  </span><span class="nt">path_to_book</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./</span>
+<span class="w">  </span><span class="nt">branch</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">main</span>
+
+<span class="c1"># Add GitHub buttons to your book</span>
+<span class="nt">html</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">use_issues_button</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">use_repository_button</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">use_edit_page_button</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+
+<span class="c1"># Launch button configuration</span>
+<span class="nt">launch_buttons</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">notebook_interface</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jupyterlab</span>
+<span class="w">  </span><span class="nt">binderhub_url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://mybinder.org</span>
+<span class="w">  </span><span class="nt">colab_url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://colab.research.google.com</span>
+
+<span class="c1"># Sphinx configuration</span>
+<span class="nt">sphinx</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">config</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">html_theme_options</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">repository_url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/YOUR_USERNAME/llms4socialscientists</span>
+<span class="w">      </span><span class="nt">use_repository_button</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">      </span><span class="nt">use_issues_button</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">      </span><span class="nt">use_edit_page_button</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</pre></div>
+</div>
+</section>
+<section id="table-of-contents-toc-yml">
+<h3>3.4 Table of Contents (_toc.yml)<a class="headerlink" href="#table-of-contents-toc-yml" title="Link to this heading">#</a></h3>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">format</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jb-book</span>
+<span class="nt">root</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">README</span>
+<span class="nt">chapters</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">notebooks/01-python-refresher/chapter</span>
+<span class="w">  </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Chapter</span><span class="nv"> </span><span class="s">1:</span><span class="nv"> </span><span class="s">Python</span><span class="nv"> </span><span class="s">Refresher&quot;</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">notebooks/02-eda-philpapers/chapter</span>
+<span class="w">  </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Chapter</span><span class="nv"> </span><span class="s">2:</span><span class="nv"> </span><span class="s">EDA</span><span class="nv"> </span><span class="s">with</span><span class="nv"> </span><span class="s">PhilPapers&quot;</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">notebooks/03-web-scraping/chapter</span>
+<span class="w">  </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Chapter</span><span class="nv"> </span><span class="s">3:</span><span class="nv"> </span><span class="s">Web</span><span class="nv"> </span><span class="s">Scraping</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">RAGs&quot;</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">notebooks/04-transformers-embeddings/chapter</span>
+<span class="w">  </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Chapter</span><span class="nv"> </span><span class="s">4:</span><span class="nv"> </span><span class="s">Transformers</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">Embeddings</span><span class="nv"> </span><span class="s">by</span><span class="nv"> </span><span class="s">Hand&quot;</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">notebooks/05-transformers-capabilities/chapter</span>
+<span class="w">  </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Chapter</span><span class="nv"> </span><span class="s">5:</span><span class="nv"> </span><span class="s">LLM</span><span class="nv"> </span><span class="s">Capabilities</span><span class="nv"> </span><span class="s">with</span><span class="nv"> </span><span class="s">Transformers&quot;</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">notebooks/06-local-llms/chapter</span>
+<span class="w">  </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Chapter</span><span class="nv"> </span><span class="s">6:</span><span class="nv"> </span><span class="s">Local</span><span class="nv"> </span><span class="s">LLMs&quot;</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">notebooks/07-api-llms/chapter</span>
+<span class="w">  </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Chapter</span><span class="nv"> </span><span class="s">7:</span><span class="nv"> </span><span class="s">LLM</span><span class="nv"> </span><span class="s">APIs&quot;</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">notebooks/08-rag-systems/chapter</span>
+<span class="w">  </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Chapter</span><span class="nv"> </span><span class="s">8:</span><span class="nv"> </span><span class="s">RAG</span><span class="nv"> </span><span class="s">Systems&quot;</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">notebooks/09-graph-rag/chapter</span>
+<span class="w">  </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Chapter</span><span class="nv"> </span><span class="s">9:</span><span class="nv"> </span><span class="s">GraphRAG&quot;</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">notebooks/10-gradio-showcase/chapter</span>
+<span class="w">  </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Chapter</span><span class="nv"> </span><span class="s">10:</span><span class="nv"> </span><span class="s">Gradio</span><span class="nv"> </span><span class="s">Showcase&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="contributing-guidelines-contributing-md">
+<h3>3.5 Contributing Guidelines (<a class="reference external" href="http://CONTRIBUTING.md">CONTRIBUTING.md</a>)<a class="headerlink" href="#contributing-guidelines-contributing-md" title="Link to this heading">#</a></h3>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gh"># Contributing to LLMs for Social Scientists</span>
+
+Thank you for your interest in contributing! This book is a community effort.
+
+<span class="gu">## Ways to Contribute</span>
+
+<span class="gu">### 1. Report Issues</span>
+<span class="k">-</span><span class="w"> </span>Typos or errors in content
+<span class="k">-</span><span class="w"> </span>Code that doesn&#39;t work
+<span class="k">-</span><span class="w"> </span>Broken links
+<span class="k">-</span><span class="w"> </span>Unclear explanations
+
+<span class="gu">### 2. Suggest Improvements</span>
+<span class="k">-</span><span class="w"> </span>New examples or datasets
+<span class="k">-</span><span class="w"> </span>Better explanations
+<span class="k">-</span><span class="w"> </span>Additional exercises
+<span class="k">-</span><span class="w"> </span>Technical improvements
+
+<span class="gu">### 3. Submit Content</span>
+<span class="k">-</span><span class="w"> </span>New case studies
+<span class="k">-</span><span class="w"> </span>Additional exercises
+<span class="k">-</span><span class="w"> </span>Code improvements
+<span class="k">-</span><span class="w"> </span>Documentation updates
+
+<span class="gu">## How to Contribute</span>
+
+<span class="gu">### 1. Fork the Repository</span>
+```bash
+git clone https://github.com/YOUR_USERNAME/llms4socialscientists.git
+cd llms4socialscientists
+</pre></div>
+</div>
+</section>
+<section id="create-a-branch">
+<h3>2. Create a Branch<a class="headerlink" href="#create-a-branch" title="Link to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>feature/your-improvement
+</pre></div>
+</div>
+</section>
+<section id="make-changes">
+<h3>3. Make Changes<a class="headerlink" href="#make-changes" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Follow the existing code style</p></li>
+<li><p>Test your changes</p></li>
+<li><p>Update documentation if needed</p></li>
+</ul>
+</section>
+<section id="submit-pull-request">
+<h3>4. Submit Pull Request<a class="headerlink" href="#submit-pull-request" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Clear description of changes</p></li>
+<li><p>Reference any related issues</p></li>
+<li><p>Test that notebooks run without errors</p></li>
+</ul>
+</section>
+</section>
+<section id="code-style">
+<h2>Code Style<a class="headerlink" href="#code-style" title="Link to this heading">#</a></h2>
+<section id="python">
+<h3>Python<a class="headerlink" href="#python" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Use Black for formatting: <code class="docutils literal notranslate"><span class="pre">black</span> <span class="pre">.</span></code></p></li>
+<li><p>Follow PEP 8 guidelines</p></li>
+<li><p>Add docstrings for functions</p></li>
+</ul>
+</section>
+<section id="notebooks">
+<h3>Notebooks<a class="headerlink" href="#notebooks" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Clear markdown explanations</p></li>
+<li><p>Runnable code cells</p></li>
+<li><p>Appropriate outputs shown</p></li>
+</ul>
+</section>
+<section id="content">
+<h3>Content<a class="headerlink" href="#content" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Academic tone but accessible</p></li>
+<li><p>Practical examples</p></li>
+<li><p>Real-world applications</p></li>
+</ul>
+</section>
+</section>
+<section id="testing">
+<h2>Testing<a class="headerlink" href="#testing" title="Link to this heading">#</a></h2>
+<p>Before submitting:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Test environment</span>
+conda<span class="w"> </span>env<span class="w"> </span>create<span class="w"> </span>-f<span class="w"> </span>environment.yml
+conda<span class="w"> </span>activate<span class="w"> </span>llms4socialscientists
+
+<span class="c1"># Run notebooks</span>
+jupyter<span class="w"> </span>nbconvert<span class="w"> </span>--execute<span class="w"> </span>--to<span class="w"> </span>notebook<span class="w"> </span>notebooks/**/*.ipynb
+
+<span class="c1"># Check code style</span>
+black<span class="w"> </span>--check<span class="w"> </span>.
+flake8<span class="w"> </span>.
+</pre></div>
+</div>
+</section>
+<section id="questions">
+<h2>Questions?<a class="headerlink" href="#questions" title="Link to this heading">#</a></h2>
+<p>Open an issue or reach out to [your.email&#64;example.com]</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+### 3.6 .gitignore (Enhanced)
+```gitignore
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+
+# Environment
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Data files (large datasets)
+data/raw/*.csv
+data/raw/*.json
+data/raw/*.parquet
+data/processed/*.csv
+data/processed/*.json
+data/processed/*.parquet
+*.pkl
+*.pickle
+
+# Models (large files)
+models/*.bin
+models/*.safetensors
+models/*.onnx
+models/embeddings/*.bin
+
+# Jupyter Book
+_build/
+.jupyter_cache/
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+</pre></div>
+</div>
+<section id="license-mit-license">
+<h3>3.7 LICENSE (MIT License)<a class="headerlink" href="#license-mit-license" title="Link to this heading">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">MIT</span> <span class="n">License</span>
+
+<span class="n">Copyright</span> <span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="mi">2025</span> <span class="p">[</span><span class="n">Your</span> <span class="n">Name</span><span class="p">]</span>
+
+<span class="n">Permission</span> <span class="ow">is</span> <span class="n">hereby</span> <span class="n">granted</span><span class="p">,</span> <span class="n">free</span> <span class="n">of</span> <span class="n">charge</span><span class="p">,</span> <span class="n">to</span> <span class="nb">any</span> <span class="n">person</span> <span class="n">obtaining</span> <span class="n">a</span> <span class="n">copy</span>
+<span class="n">of</span> <span class="n">this</span> <span class="n">software</span> <span class="ow">and</span> <span class="n">associated</span> <span class="n">documentation</span> <span class="n">files</span> <span class="p">(</span><span class="n">the</span> <span class="s2">&quot;Software&quot;</span><span class="p">),</span> <span class="n">to</span> <span class="n">deal</span>
+<span class="ow">in</span> <span class="n">the</span> <span class="n">Software</span> <span class="n">without</span> <span class="n">restriction</span><span class="p">,</span> <span class="n">including</span> <span class="n">without</span> <span class="n">limitation</span> <span class="n">the</span> <span class="n">rights</span>
+<span class="n">to</span> <span class="n">use</span><span class="p">,</span> <span class="n">copy</span><span class="p">,</span> <span class="n">modify</span><span class="p">,</span> <span class="n">merge</span><span class="p">,</span> <span class="n">publish</span><span class="p">,</span> <span class="n">distribute</span><span class="p">,</span> <span class="n">sublicense</span><span class="p">,</span> <span class="ow">and</span><span class="o">/</span><span class="ow">or</span> <span class="n">sell</span>
+<span class="n">copies</span> <span class="n">of</span> <span class="n">the</span> <span class="n">Software</span><span class="p">,</span> <span class="ow">and</span> <span class="n">to</span> <span class="n">permit</span> <span class="n">persons</span> <span class="n">to</span> <span class="n">whom</span> <span class="n">the</span> <span class="n">Software</span> <span class="ow">is</span>
+<span class="n">furnished</span> <span class="n">to</span> <span class="n">do</span> <span class="n">so</span><span class="p">,</span> <span class="n">subject</span> <span class="n">to</span> <span class="n">the</span> <span class="n">following</span> <span class="n">conditions</span><span class="p">:</span>
+
+<span class="n">The</span> <span class="n">above</span> <span class="n">copyright</span> <span class="n">notice</span> <span class="ow">and</span> <span class="n">this</span> <span class="n">permission</span> <span class="n">notice</span> <span class="n">shall</span> <span class="n">be</span> <span class="n">included</span> <span class="ow">in</span> <span class="nb">all</span>
+<span class="n">copies</span> <span class="ow">or</span> <span class="n">substantial</span> <span class="n">portions</span> <span class="n">of</span> <span class="n">the</span> <span class="n">Software</span><span class="o">.</span>
+
+<span class="n">THE</span> <span class="n">SOFTWARE</span> <span class="n">IS</span> <span class="n">PROVIDED</span> <span class="s2">&quot;AS IS&quot;</span><span class="p">,</span> <span class="n">WITHOUT</span> <span class="n">WARRANTY</span> <span class="n">OF</span> <span class="n">ANY</span> <span class="n">KIND</span><span class="p">,</span> <span class="n">EXPRESS</span> <span class="n">OR</span>
+<span class="n">IMPLIED</span><span class="p">,</span> <span class="n">INCLUDING</span> <span class="n">BUT</span> <span class="n">NOT</span> <span class="n">LIMITED</span> <span class="n">TO</span> <span class="n">THE</span> <span class="n">WARRANTIES</span> <span class="n">OF</span> <span class="n">MERCHANTABILITY</span><span class="p">,</span>
+<span class="n">FITNESS</span> <span class="n">FOR</span> <span class="n">A</span> <span class="n">PARTICULAR</span> <span class="n">PURPOSE</span> <span class="n">AND</span> <span class="n">NONINFRINGEMENT</span><span class="o">.</span> <span class="n">IN</span> <span class="n">NO</span> <span class="n">EVENT</span> <span class="n">SHALL</span> <span class="n">THE</span>
+<span class="n">AUTHORS</span> <span class="n">OR</span> <span class="n">COPYRIGHT</span> <span class="n">HOLDERS</span> <span class="n">BE</span> <span class="n">LIABLE</span> <span class="n">FOR</span> <span class="n">ANY</span> <span class="n">CLAIM</span><span class="p">,</span> <span class="n">DAMAGES</span> <span class="n">OR</span> <span class="n">OTHER</span>
+<span class="n">LIABILITY</span><span class="p">,</span> <span class="n">WHETHER</span> <span class="n">IN</span> <span class="n">AN</span> <span class="n">ACTION</span> <span class="n">OF</span> <span class="n">CONTRACT</span><span class="p">,</span> <span class="n">TORT</span> <span class="n">OR</span> <span class="n">OTHERWISE</span><span class="p">,</span> <span class="n">ARISING</span> <span class="n">FROM</span><span class="p">,</span>
+<span class="n">OUT</span> <span class="n">OF</span> <span class="n">OR</span> <span class="n">IN</span> <span class="n">CONNECTION</span> <span class="n">WITH</span> <span class="n">THE</span> <span class="n">SOFTWARE</span> <span class="n">OR</span> <span class="n">THE</span> <span class="n">USE</span> <span class="n">OR</span> <span class="n">OTHER</span> <span class="n">DEALINGS</span> <span class="n">IN</span> <span class="n">THE</span>
+<span class="n">SOFTWARE</span><span class="o">.</span>
+</pre></div>
+</div>
+</section>
+<section id="sample-chapter-template">
+<h3>3.8 Sample Chapter Template<a class="headerlink" href="#sample-chapter-template" title="Link to this heading">#</a></h3>
+<p>Create <code class="docutils literal notranslate"><span class="pre">notebooks/01-python-refresher/chapter.md</span></code>:</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gh"># Chapter 1: Python Refresher</span>
+
+<span class="gu">## Learning Objectives</span>
+By the end of this chapter, you will be able to:
+<span class="k">-</span><span class="w"> </span>Handle text data efficiently in Python
+<span class="k">-</span><span class="w"> </span>Use essential libraries for data processing
+<span class="k">-</span><span class="w"> </span>Process and clean philosophy paper abstracts
+<span class="k">-</span><span class="w"> </span>Set up your development environment
+
+<span class="gu">## Prerequisites</span>
+<span class="k">-</span><span class="w"> </span>Basic Python knowledge
+<span class="k">-</span><span class="w"> </span>Jupyter Lab/Notebook installed
+<span class="k">-</span><span class="w"> </span>Curiosity about philosophy and AI
+
+<span class="gu">## Introduction</span>
+
+Welcome to your journey into LLMs for social science research! This chapter refreshes essential Python skills you&#39;ll need throughout the book.
+
+We&#39;ll focus on practical text processing techniques using real philosophy papers from the PhilPapers dataset.
+
+<span class="gu">## Next Steps</span>
+<span class="k">-</span><span class="w"> </span>Complete the exercises in the notebook
+<span class="k">-</span><span class="w"> </span>Set up your development environment
+<span class="k">-</span><span class="w"> </span>Download the PhilPapers sample dataset
+
+<span class="gu">## Resources</span>
+<span class="k">-</span><span class="w"> </span>[<span class="nt">Python Documentation</span>](<span class="na">https://docs.python.org/3/</span>)
+<span class="k">-</span><span class="w"> </span>[<span class="nt">Pandas Documentation</span>](<span class="na">https://pandas.pydata.org/docs/</span>)
+<span class="k">-</span><span class="w"> </span>[<span class="nt">PhilPapers API</span>](<span class="na">https://philpapers.org/help/api.html</span>)
+</pre></div>
+</div>
+</section>
+<section id="sample-notebook-structure">
+<h3>3.9 Sample Notebook Structure<a class="headerlink" href="#sample-notebook-structure" title="Link to this heading">#</a></h3>
+<p>Create <code class="docutils literal notranslate"><span class="pre">notebooks/01-python-refresher/python-refresher.ipynb</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># This would be a Jupyter notebook with:</span>
+<span class="c1"># - Markdown cells for explanations</span>
+<span class="c1"># - Code cells for exercises</span>
+<span class="c1"># - Philosophy-focused examples</span>
+<span class="c1"># - Progressive difficulty</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="step-4-initialize-git-and-push">
+<h2>Step 4: Initialize Git and Push<a class="headerlink" href="#step-4-initialize-git-and-push" title="Link to this heading">#</a></h2>
+<section id="add-files-to-git">
+<h3>4.1 Add Files to Git<a class="headerlink" href="#add-files-to-git" title="Link to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add all files</span>
+git<span class="w"> </span>add<span class="w"> </span>.
+
+<span class="c1"># Check status</span>
+git<span class="w"> </span>status
+
+<span class="c1"># Commit initial structure</span>
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Initial book structure and configuration</span>
+
+<span class="s2">- Set up 10-chapter structure focused on LLMs for social scientists</span>
+<span class="s2">- Added environment configuration with all necessary dependencies</span>
+<span class="s2">- Created Jupyter Book configuration for professional publishing</span>
+<span class="s2">- Established directory structure for notebooks, data, and applications</span>
+<span class="s2">- Added comprehensive README and contributing guidelines</span>
+<span class="s2">- Focused on philosophy datasets (PhilPapers) as consistent example&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="push-to-github">
+<h3>4.2 Push to GitHub<a class="headerlink" href="#push-to-github" title="Link to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>main
+</pre></div>
+</div>
+</section>
+</section>
+<section id="step-5-set-up-development-environment">
+<h2>Step 5: Set Up Development Environment<a class="headerlink" href="#step-5-set-up-development-environment" title="Link to this heading">#</a></h2>
+<section id="create-conda-environment">
+<h3>5.1 Create Conda Environment<a class="headerlink" href="#create-conda-environment" title="Link to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create environment</span>
+conda<span class="w"> </span>env<span class="w"> </span>create<span class="w"> </span>-f<span class="w"> </span>environment.yml
+
+<span class="c1"># Activate environment</span>
+conda<span class="w"> </span>activate<span class="w"> </span>llms4socialscientists
+
+<span class="c1"># Install Jupyter Book</span>
+pip<span class="w"> </span>install<span class="w"> </span>jupyter-book
+
+<span class="c1"># Test installation</span>
+jupyter<span class="w"> </span>lab
+</pre></div>
+</div>
+</section>
+<section id="test-jupyter-book-build">
+<h3>5.2 Test Jupyter Book Build<a class="headerlink" href="#test-jupyter-book-build" title="Link to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Build the book (will fail initially but shows setup works)</span>
+jupyter-book<span class="w"> </span>build<span class="w"> </span>.
+
+<span class="c1"># This will create _build/ directory when content is added</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="step-6-set-up-github-pages-optional">
+<h2>Step 6: Set Up GitHub Pages (Optional)<a class="headerlink" href="#step-6-set-up-github-pages-optional" title="Link to this heading">#</a></h2>
+<section id="enable-github-pages">
+<h3>6.1 Enable GitHub Pages<a class="headerlink" href="#enable-github-pages" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Go to your repository on GitHub</p></li>
+<li><p>Click “Settings” tab</p></li>
+<li><p>Scroll to “Pages” section</p></li>
+<li><p>Source: “GitHub Actions”</p></li>
+<li><p>This will auto-deploy your Jupyter Book</p></li>
+</ol>
+</section>
+<section id="github-actions-workflow">
+<h3>6.2 GitHub Actions Workflow<a class="headerlink" href="#github-actions-workflow" title="Link to this heading">#</a></h3>
+<p>Create <code class="docutils literal notranslate"><span class="pre">.github/workflows/book.yml</span></code>:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">deploy-book</span>
+
+<span class="nt">on</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">push</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">branches</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">main</span>
+
+<span class="nt">jobs</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">deploy-book</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v3</span>
+
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Setup Python</span>
+<span class="w">      </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-python@v4</span>
+<span class="w">      </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">python-version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;3.11&#39;</span>
+
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install dependencies</span>
+<span class="w">      </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">        </span><span class="no">pip install -r requirements.txt</span>
+<span class="w">        </span><span class="no">pip install jupyter-book</span>
+
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Build book</span>
+<span class="w">      </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">        </span><span class="no">jupyter-book build .</span>
+
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deploy to GitHub Pages</span>
+<span class="w">      </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">peaceiris/actions-gh-pages@v3</span>
+<span class="w">      </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">github_token</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.GITHUB_TOKEN }}</span>
+<span class="w">        </span><span class="nt">publish_dir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./_build/html</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="step-7-verification-checklist">
+<h2>Step 7: Verification Checklist<a class="headerlink" href="#step-7-verification-checklist" title="Link to this heading">#</a></h2>
+<section id="repository-setup">
+<h3>✅ Repository Setup<a class="headerlink" href="#repository-setup" title="Link to this heading">#</a></h3>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> GitHub repository created</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Repository cloned locally</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Directory structure created</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> All config files in place</p></li>
+</ul>
+</section>
+<section id="environment-setup">
+<h3>✅ Environment Setup<a class="headerlink" href="#environment-setup" title="Link to this heading">#</a></h3>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Conda environment created</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> All dependencies installed</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Jupyter Lab launches successfully</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Can import key libraries (pandas, transformers, etc.)</p></li>
+</ul>
+</section>
+<section id="book-configuration">
+<h3>✅ Book Configuration<a class="headerlink" href="#book-configuration" title="Link to this heading">#</a></h3>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> <code class="docutils literal notranslate"><span class="pre">_config.yml</span></code> configured</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> <code class="docutils literal notranslate"><span class="pre">_toc.yml</span></code> structured</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> <a class="reference external" href="http://README.md">README.md</a> comprehensive</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Contributing guidelines clear</p></li>
+</ul>
+</section>
+<section id="development-workflow">
+<h3>✅ Development Workflow<a class="headerlink" href="#development-workflow" title="Link to this heading">#</a></h3>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Git initialized and committed</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Pushed to GitHub</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> GitHub Pages enabled (optional)</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Jupyter Book builds without errors</p></li>
+</ul>
+</section>
+</section>
+<section id="next-steps-after-setup">
+<h2>Next Steps After Setup<a class="headerlink" href="#next-steps-after-setup" title="Link to this heading">#</a></h2>
+<section id="start-with-chapter-2-eda">
+<h3>1. Start with Chapter 2 (EDA)<a class="headerlink" href="#start-with-chapter-2-eda" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Download PhilPapers sample data</p></li>
+<li><p>Create exploratory data analysis notebook</p></li>
+<li><p>Test your development workflow</p></li>
+</ul>
+</section>
+<section id="adapt-your-existing-labs">
+<h3>2. Adapt Your Existing Labs<a class="headerlink" href="#adapt-your-existing-labs" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Start with your Lab 7 (transform to Chapter 5)</p></li>
+<li><p>Modify examples to use philosophy datasets</p></li>
+<li><p>Test all code with new environment</p></li>
+</ul>
+</section>
+<section id="build-community">
+<h3>3. Build Community<a class="headerlink" href="#build-community" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Share repository on academic Twitter</p></li>
+<li><p>Announce in computational social science groups</p></li>
+<li><p>Invite collaborators and reviewers</p></li>
+</ul>
+</section>
+</section>
+<section id="quick-commands-reference">
+<h2>Quick Commands Reference<a class="headerlink" href="#quick-commands-reference" title="Link to this heading">#</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Activate environment</span>
+conda<span class="w"> </span>activate<span class="w"> </span>llms4socialscientists
+
+<span class="c1"># Launch Jupyter</span>
+jupyter<span class="w"> </span>lab
+
+<span class="c1"># Build book</span>
+jupyter-book<span class="w"> </span>build<span class="w"> </span>.
+
+<span class="c1"># Git workflow</span>
+git<span class="w"> </span>add<span class="w"> </span>.
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Chapter X: Description&quot;</span>
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>main
+
+<span class="c1"># Update environment</span>
+conda<span class="w"> </span>env<span class="w"> </span>update<span class="w"> </span>-f<span class="w"> </span>environment.yml
+</pre></div>
+</div>
+<p>Your repository is now ready for development! The structure is professional, the environment is complete, and you have a clear path forward. Start with the EDA chapter using PhilPapers data, then adapt your existing labs to this new focused structure.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-create-github-repository">Step 1: Create GitHub Repository</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-repository-on-github">1.1 Create Repository on GitHub</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clone-repository-locally">1.2 Clone Repository Locally</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-initial-directory-structure">Step 2: Initial Directory Structure</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-directory-structure">2.1 Create Directory Structure</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verify-structure">2.2 Verify Structure</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-create-initial-files">Step 3: Create Initial Files</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#main-readme-md">3.1 Main README.md</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#launch-jupyter">Launch Jupyter</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datasets-and-examples">📊 Datasets and Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#primary-focus-political-science"><strong>Primary Focus: Political Science</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adaptable-to-other-disciplines"><strong>Adaptable to Other Disciplines</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tech-stack">🛠️ Tech Stack</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-path">📖 Learning Path</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#foundation-chapters-1-3"><strong>Foundation (Chapters 1-3)</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#understanding-ai-chapters-4-5"><strong>Understanding AI (Chapters 4-5)</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deployment-options-chapters-6-7"><strong>Deployment Options (Chapters 6-7)</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-applications-chapters-8-9"><strong>Advanced Applications (Chapters 8-9)</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#production-chapter-10"><strong>Production (Chapter 10)</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#final-research-projects">🎯 Final Research Projects</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#political-science-applications"><strong>Political Science Applications</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generalizable-to-other-fields"><strong>Generalizable to Other Fields</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#research-methodologies-enhanced">🔬 Research Methodologies Enhanced</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#qualitative-research"><strong>Qualitative Research</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quantitative-research"><strong>Quantitative Research</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mixed-methods"><strong>Mixed Methods</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#license">📝 License</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contributing">🤝 Contributing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contact">📬 Contact</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-book-configuration-config-yml">3.3 Jupyter Book Configuration (_config.yml)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents-toc-yml">3.4 Table of Contents (_toc.yml)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contributing-guidelines-contributing-md">3.5 Contributing Guidelines (CONTRIBUTING.md)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-branch">2. Create a Branch</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#make-changes">3. Make Changes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#submit-pull-request">4. Submit Pull Request</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-style">Code Style</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python">Python</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notebooks">Notebooks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#content">Content</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#testing">Testing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions">Questions?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#license-mit-license">3.7 LICENSE (MIT License)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-chapter-template">3.8 Sample Chapter Template</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-notebook-structure">3.9 Sample Notebook Structure</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-initialize-git-and-push">Step 4: Initialize Git and Push</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-files-to-git">4.1 Add Files to Git</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#push-to-github">4.2 Push to GitHub</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-set-up-development-environment">Step 5: Set Up Development Environment</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-conda-environment">5.1 Create Conda Environment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test-jupyter-book-build">5.2 Test Jupyter Book Build</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-6-set-up-github-pages-optional">Step 6: Set Up GitHub Pages (Optional)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enable-github-pages">6.1 Enable GitHub Pages</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#github-actions-workflow">6.2 GitHub Actions Workflow</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-7-verification-checklist">Step 7: Verification Checklist</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#repository-setup">✅ Repository Setup</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#environment-setup">✅ Environment Setup</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#book-configuration">✅ Book Configuration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#development-workflow">✅ Development Workflow</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#next-steps-after-setup">Next Steps After Setup</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#start-with-chapter-2-eda">1. Start with Chapter 2 (EDA)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adapt-your-existing-labs">2. Adapt Your Existing Labs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#build-community">3. Build Community</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-commands-reference">Quick Commands Reference</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Yemre Tapan
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+# Core Python packages
+jupyter
+jupyterlab
+notebook
+
+# Data processing
+pandas
+numpy
+matplotlib
+seaborn
+networkx
+scikit-learn
+
+# Web scraping
+requests
+beautifulsoup4
+selenium
+
+# NLP and ML
+transformers
+torch
+sentence-transformers
+datasets
+
+# Vector databases
+chromadb
+faiss-cpu
+
+# Visualization
+plotly
+wordcloud
+
+# Development
+black
+flake8
+pytest
+
+# Deployment
+gradio
+streamlit
+
+# Additional packages
+pypdf
+openai
+python-dotenv
+tiktoken
+
+# Jupyter Book
+jupyter-book 
